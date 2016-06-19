@@ -1,0 +1,28 @@
+body{
+}
+
+.outerBox {
+    position: relative;
+    width: 1000px;
+    height:300px;
+    overflow: hidden;
+}
+
+.innerBox{
+    position: absolute;
+    width: 1000px;
+    height:300px;
+    overflow: hidden;
+    top: 0px;
+    opacity: 0;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -ms-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+}
+
+
+.showMe {
+    opacity: 1;
+}
