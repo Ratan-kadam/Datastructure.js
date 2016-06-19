@@ -37,25 +37,8 @@
 
         for (var i = 0; i < letters.length; i++) {
             while(true){ // imp loop
-                if(i==0){
-                    // first letter
-                    if(!root1.myMap[letters[i]]){
-                        // new entry plus reference
-                        var temp = new Node();
-                        root1.myMap[letters[i]]=temp;
-
-                        root1=temp; // moving the current root to next as we have while (true ) loop in progress
-                        alert("added to root obj");
-
-                    }else{
-                        // existing in root
-                        root1 = root1.myMap[letters[i]];
-                    }
-                    break; // we have moved to next obj so break and start with next letter
-                } else{
-                    // every thing from second letter// already we have moved to next structure then below
                     if(root1.myMap[letters[i]]){
-                        root1=root1.myMap[letters[i]];
+                        root1=root1.myMap[letters[i]]; // move to next block
                         break; // letter is present go to next block
                     }else{
                         var temp = new Node();
@@ -63,10 +46,10 @@
                             temp.endOfString=true;
                         }
                         root1.myMap[letters[i]]=temp;
-                        root1=temp;
+                        root1=temp; // move to next block
                         break;
                     }
-                }
+               // }
             } // forever loop completion bracket
 
         }
@@ -105,7 +88,12 @@
     myTrie.insert("ratzam");
     myTrie.insert("damn");
     console.log(myTrie.root); // try to open in chrom to get the tree structure
+    console.log("rez:");
     myTrie.preSearch("raz");
+    console.log("rat:");
+    myTrie.preSearch("rat");
+    console.log("ratankas:");
+    myTrie.preSearch("ratankas");
 
 
 </script>
