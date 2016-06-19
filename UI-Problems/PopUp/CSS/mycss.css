@@ -1,0 +1,51 @@
+p {
+    color:red;
+}
+
+Html,body {
+    width: 100%;
+    height: 100%;
+}
+
+div {
+    color:green;
+}
+
+.relative {
+    position: relative;
+    width:100%;
+    height:100%;
+}
+
+.outer {
+    width: 100%;
+    z-index:10;
+    position:absolute;
+    top:0px;
+    background-color:#0010;
+
+}
+.ShowMe{
+    visibility: visible;
+}
+
+.HideMe{
+    visibility: hidden;
+}
+p{
+    background-color: yellow;
+    color:black;
+    font-weight:900%;
+
+}
+#popup{
+    width:100%;
+    height:100%;
+    color:green;
+    opacity:0.9;
+    z-index:100;
+    position:absolute;
+    top:0px;
+    background-color:red;
+
+}
