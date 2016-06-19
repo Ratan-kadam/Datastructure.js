@@ -34,6 +34,8 @@ var mystack = new stack();
 mystack.push(5);
 mystack.push(4);
 mystack.push(3);
+mystack.pop();
+mystack.push(31);
 console.log("peek: "+ mystack.peek());
 mystack.push(2);
 mystack.push(1);

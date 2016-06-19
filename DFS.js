@@ -12,8 +12,6 @@ function binaryTree() {
     this.head = new Node();
 }
 
-
-
 binaryTree.prototype.add = function(ele) {
     console.log("---Adding: " + ele);
     if(this.head.val == null){

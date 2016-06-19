@@ -83,7 +83,21 @@ Heap.prototype.bubbleDown=function(rootIndex){
         this.bubbleDown(swapIndex); // swapindex is the new root
     }
 };
+/* to delete perticular element */
+Heap.prototype.delete1= function(ele) {
+    var eleIndex = this.content.indexOf(ele);
+    //  console.log(this.content);
+    this.content[eleIndex] = this.content[this.content.length -1];
+    this.content.splice(this.content.length-1,1);
+    // console.log("replacing the root by last element:");
+    // console.log(this.content);
+    this.bubbleDown(eleIndex);  // always root
 
+
+};
+
+
+//*
 
 var myHeap = new Heap();
 console.log("--------------inserting 31---------");
