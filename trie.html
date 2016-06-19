@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<script>
+    /**
+     * Created by ratan_000 on 6/19/2016.
+     */
+
+// TRIE Is nothing but Tree dataStructure. where each node have hashMap and endOf String indicator.
+
+    function Node(){
+        this.myMap={}; // for storing the letter ans path of next node
+        this.endOfString=false; // default false
+    }
+
+
+    // trie class so user has to create class of below to start the process.
+    function Trie() {
+        this.root = new Node();
+
+        this.delete = function (word) {
+        };
+        this.CompleteSearch = function () {
+        };
+    }
+
+    /***** MOST IMPORTANT FUNCTION IN TRIE - FORMATION OF TREE STRUCTURE *********/
+    Trie.prototype.insert=function(word) {
+        // splitting the word.
+        var letters = word.split(''); // character array
+        var root1 = this.root; //  runner pointer
+
+        for (var i = 0; i < letters.length; i++) {
+            while(true){ // imp loop
+                if(i==0){
+                    // first letter
+                    if(!root1.myMap[letters[i]]){
+                        // new entry plus reference
+                        var temp = new Node();
+                        root1.myMap[letters[i]]=temp;
+
+                        root1=temp; // moving the current root to next as we have while (true ) loop in progress
+                        alert("added to root obj");
+
+                    }else{
+                        // existing in root
+                        root1 = root1.myMap[letters[i]];
+                    }
+                    break; // we have moved to next obj so break and start with next letter
+                } else{
+                    // every thing from second letter// already we have moved to next structure then below
+                    if(root1.myMap[letters[i]]){
+                        root1=root1.myMap[letters[i]];
+                        break; // letter is present go to next block
+                    }else{
+                        var temp = new Node();
+                        if(i==letters.length-1){
+                            temp.endOfString=true;
+                        }
+                        root1.myMap[letters[i]]=temp;
+                        root1=temp;
+                        break;
+                    }
+                }
+            } // forever loop completion bracket
+
+        }
+    };
+
+    /********** PRESEARCH *****************************************************/
+    Trie.prototype.preSearch= function(preWord){
+        var runner = this.root;
+
+          var letters = preWord.split('');
+
+        for(var i=0;i<letters.length;i++){
+             while(true){ // forever loop
+                 if(runner.myMap[letters[i]]){
+                     // moving to next object
+                     runner= runner.myMap[letters[i]];
+                     // so that letter is find in current map .. breaking to process next letter
+                     break;
+                 }else{
+                     console.log("the string is not present");
+                     return;
+                 }
+             }
+        }
+
+        console.log("String found in Trie Datastructure..");
+        return;
+    };
+
+
+
+    // Run --
+
+    var myTrie = new Trie();
+    myTrie.insert("ratan");
+    myTrie.insert("ratzam");
+    myTrie.insert("damn");
+    console.log(myTrie.root); // try to open in chrom to get the tree structure
+    myTrie.preSearch("raz");
+
+
+</script>
+
+</body>
+</html>
