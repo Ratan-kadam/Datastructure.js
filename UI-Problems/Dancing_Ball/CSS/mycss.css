@@ -1,0 +1,38 @@
+.outer{
+    width:300px;
+    height:300px;
+    border:2px;
+    border-color:black;
+    background-color:yellow;
+    position:relative;
+}
+
+.ball{
+    background-color:red;
+    border-radius:40px;
+    height:80px;
+    width:80px;
+    top:50px;
+    left:50px;
+    position:absolute;
+    transition-property: top,left;
+    transition-duration: 2s;
+}
+
+.position1{
+    left:00px;
+    top:00px;
+}
+
+.position2{
+    left:250px;
+    top:200px;
+    position:absolute;
+}
+
+.position3{
+    left:200px;
+    top:10px;
+    position:absolute;
+
+}
