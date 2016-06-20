@@ -1,0 +1,57 @@
+/**
+ * Created by ratan_000 on 6/19/2016.
+ */
+<html>
+    <script>
+var myJson= {
+    a:1,
+    b:"ratan",
+    c:[1,2,4],
+    d:{in1:100,in2:200},
+    e:5510
+};
+
+var result={};
+
+function flatMe(ele,backpath){
+
+    for(var i in ele){
+        var path=backpath +"_"+ i;
+        if(typeof(ele[i])=== "string" || typeof(ele[i]) == "number"){
+            // direct add
+            result[path]=ele[i];
+        }else if(typeof (ele[i])== "object" && Array.isArray(ele[i]) == true){
+            console.log("array found");
+            for(var j=0;j<ele[i].length;j++){
+                console.log("-->" +ele[i][j]);
+                result[i+'_'+j] =ele[i][j];
+            }
+
+        }else if(typeof (ele[i])== "object" && !Array.isArray(ele[i])){
+            console.log("obj found");
+            flatMe(ele[i],i);// recursive call
+        }
+    }
+}
+
+flatMe(myJson,""); // passing backpath as "" blank string
+
+        console.log(result);
+
+        /* flat output *
+         _a:1,
+         _b:"ratan",
+         _e:5510,
+         c_0:1,
+         c_1:2,
+         c_2:4,
+         d_in1:100,
+         d_in2:200
+
+         */
+    </script>
+</html>
+
+
+
+
