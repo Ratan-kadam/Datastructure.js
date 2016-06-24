@@ -2,18 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Courousal</title>
+    <title> Cart </title>
 <link rel="stylesheet" type="text/css" href="../CSS/mycss.css">
 </head>
 <body>
- <div  ondrop="droppedHere(event)" class="dropHere">
- </div>
+<!-- to collect the items from drag event -->
+<div class="myCart"  id="cartID" ondrop="dropped(event)"  ondragover="stopDefaultBehaviour(event)">
+<span> Drag your element here ..</span> <br> </div>
+
+<div class="items">
+    <span id="cookies" draggable="true" ondragstart="draggingStarted(event)">Cookies</span>
+    <span id="oil" draggable="true" ondragstart="draggingStarted(event)">Oil</span>
+    <span draggable="true" ondragstart="draggingStarted(event)" id="rice">Rice</span>
+</div>
 
 
- <div class="items">
-     <span draggable="true" ondrag="dragStarted(event)">item1</span>
-     <span draggable="true">item2</span>
- </div>
 <script src="../javascript/myJs.js"></script>
 </body>
 </html>

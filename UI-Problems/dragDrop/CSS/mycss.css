@@ -3,11 +3,14 @@
     width:500px;
     height: 200px;
     color: red;
-    background-color: yellow;
+    background-color: lightgreen;
+    font-weight: 800;
+
 }
 
-.dropHere{
-    background-color: blue;
+.myCart{
+    background-color: green;
     height: 600px;
     width: 500px;
+    color:  white;
 }
