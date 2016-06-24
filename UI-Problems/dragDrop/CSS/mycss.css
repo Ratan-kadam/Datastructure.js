@@ -1,0 +1,13 @@
+.items{
+
+    width:500px;
+    height: 200px;
+    color: red;
+    background-color: yellow;
+}
+
+.dropHere{
+    background-color: blue;
+    height: 600px;
+    width: 500px;
+}

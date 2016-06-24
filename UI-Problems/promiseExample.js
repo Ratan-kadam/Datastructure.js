@@ -16,11 +16,9 @@ var myPromise = new Promise(function (resolve,reject) {
     },2000);
 });
 
-
 // define chaning .. even though you ahave paramertres don't write direct use at fucntion / make sure you return the function
 myPromise.then(success1,fail1)
     .then(success2,fail2);
-
 
 /* all .then : success / fail functions functions */
 
@@ -36,7 +34,6 @@ function success1(a){
 
 }
 
-
 function success2(a){
     console.log("this is success2  "+ a);
 }
@@ -49,7 +46,7 @@ function fail2(a){
     console.log("this is fail2  "+ a);
 }
 
-/* output 
+/* output
  executed
  this is success1 ratanand now executing the new callback
  second promise executing
