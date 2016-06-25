@@ -1,0 +1,27 @@
+.inner{
+    position:relative;
+    display:inline-block;
+    width:160px;
+    transition:all 02s;
+}
+
+.outer{
+    position:absolute;
+    width:700px;
+    overflow:hidden;
+}
+
+.outer:hover div{
+    width:40px;
+}
+
+.outer div:hover{
+    width:600px;
+}
+
+
+
+
+
+
+
