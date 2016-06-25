@@ -1,0 +1,54 @@
+.myCointainer{
+    /*
+
+ lets design for 5 images
+  per images " 160 * 5  = 800 px
+
+*/
+    width:800px;
+    height:400px;
+    position:absolute;
+    left:25%;
+    top:20%;
+    overflow: hidden;
+}
+
+
+.myCointainer ul  li{
+  /* every li i.e images length */
+
+    width: 160px;
+    float: left;  /* if you provide witdh then flaot left then next all elements are arranged after that elements with 160px */
+    transition: all 0.5s;
+    display: block;  /* otherwise the hover element is lifted upwards */
+
+
+}
+
+
+
+.myCointainer ul:hover li{  /* imp to put hover on entire UL  so we are making all sizes 40px and then below css
+ targetting the perticular li to get size*/
+    width: 40px;
+
+}
+
+.myCointainer ul li:hover{
+    width: 640px;
+    vertical-align: bottom;
+}
+
+
+.myCointainer ul{
+    width: 2000px; /* this is the container so after hover the elements should not flow in downward direction */
+}
+
+
+
+
+
+
+
+
+
+
