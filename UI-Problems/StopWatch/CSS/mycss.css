@@ -1,0 +1,32 @@
+.inline{
+    display: inline-block;
+}
+
+
+.clock{
+    position:absolute;
+    left: 25%;
+    top:20%;
+    font-size: 100px;
+    border: 1px;
+    background-color: lightgoldenrodyellow ;
+}
+
+.hours{
+    color:green;
+    border-width: 10px;
+    border-color: black;
+
+}
+
+.minutes{
+    color:blue;
+}
+
+.seconds{
+    color:red;
+}
+
+
+
+
