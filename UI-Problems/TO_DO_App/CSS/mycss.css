@@ -1,0 +1,14 @@
+.bucket{
+    width: 20%;
+    border-color: brown;
+    border-width: 5px;
+    background-color: lightgoldenrodyellow;
+    display: inline-block;
+    vertical-align: top;
+    overflow-x: hidden;
+}
+
+.bucket div{
+    margin-top:10px;
+    margin-bottom: 10px;
+}
