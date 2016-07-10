@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+UserName : <input type="text" class="username">
+Password : <input type="text" class="password">
+submit : <button onclick="auth()">Submit</button>
+
+<script>
+  function auth() {
+    var username = document.getElementsByClassName("username")[0];
+    var password = document.getElementsByClassName("password")[0];
+    alert(username.value + ":" + password.value);
+    var payload={
+      "username": username.value,
+      "password": password.value
+    };
+
+    var myajax = new XMLHttpRequest();
+     myajax.open('post',"/mylogin",true);
+
+      myajax.setRequestHeader("Content-type", "application/json; charset=utf-8"); // imp
+   // myajax.setRequestHeader("Content-length", payload.length);
+   // myajax.setRequestHeader("Connection", "close");
+
+    myajax.onreadystatechange= function(){
+      if(myajax.readyState == 4 && myajax.status == 200){
+         console.log("response---");
+        console.log(myajax.response);
+        alert("sent successfully");
+      }else if(myajax.status !=200){
+        alert("error11111");
+      }
+  }
+    console.log("payload stringify");
+       console.log(JSON.stringify(payload));
+    myajax.send(JSON.stringify(payload));
+  }
+
+  // alert("context Name" + context.name.value);
+  // alert("context Name" + context.password.value);
+
+
+</script>
+
+</body>
+</html>
