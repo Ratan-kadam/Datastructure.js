@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Validate Me</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <div class="signUp"> SIGN UP </div>
+  <form  ng-submit="validateMe()" class="form-group">
+    <div class=" firstrow col-lg-12 col-md-12 col-sm-12">
+      <!-- first row start  -->
+      <div class="col-lg-6 col-md-6 col-sm-6 ">
+        <!-- first row left part -->
+        <label>First Name</label>
+        <input class="form-control col-lg-12 col-md-12 col-sm-12" required/>
+      </div>
+      <!-- first row left part ends-->
+      <div class="col-lg-6 col-md-6 col-sm-6 ">
+        <!-- first row right part start  -->
+        <label>Last Name</label>
+        <input class="form-control col-lg-12 col-md-12 col-sm-12" required/>
+      </div>
+      <!-- first row right part ends -->
+    </div>
+    <!-- first row ends -->
+    <!-- second row starts here -->
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <label class="col-lg-12 col-md-12 col-sm-12"> Company Name </label>
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <input class="form-control col-lg-12 col-md-12 col-sm-12" required/>
+      </div>
+    </div>
+    <!-- second row ends here --
+
+
+
+    <!-- third row starts here -->
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <label class="col-lg-12 col-md-12 col-sm-12"> Work Email </label>
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <input class="form-control workEmail" class="col-lg-12 col-md-12 col-sm-12" required />
+      </div>
+    </div>
+    <!-- third row ends here -->
+    <!-- fourth  row starts here -->
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <label class=" col-lg-12 col-md-12 col-sm-12"> Phone Number </label>
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <input type="tel" class=" phone form-control col-lg-12 col-md-12 col-sm-12" required />
+      </div>
+    </div>
+    <!-- fourth  row ends here -->
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <!--fifth column left part -->
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <label> Country </label>
+        <select required class="form-control" id="country" ng-model="states"
+                ng-options="country for (country, states) in countries">
+          <option value=''> Please Select </option>
+        </select>
+      </div>
+      <!--fifth column right part -->
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <label> State </label>
+        <select required class="form-control" id="state" ng-disabled="!states"
+                ng-model="suburbs"
+                ng-options="state for (state, suburbs) in states">
+          <option value=''>- Please Select -</option>
+        </select>
+      </div>
+      <!-- fifth right column ends here -->
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <!--six column left part -->
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <label> Industry </label>
+        <select required class="form-control col-lg-12 col-md-12 col-sm-12" id="industry" ng-model="indus">
+          <option ng-repeat="indus in industry" value="{{indus}}">{{indus}}</option>
+          <option  value=''> Please Select </option>
+        </select>
+      </div>
+      <!--six column right part -->
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <label> Zip/Postal </label>
+        <input required type="number" class="form-control col-lg-12 col-md-12 col-sm-12"/>
+      </div>
+      <!-- six row right column ends here -->
+    </div>
+    <!-- seventh row -->
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <!--six column left part -->
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <label> Password </label>
+        <input  required type="password" class="form-control password col-lg-12 col-md-12 col-sm-12" />
+      </div>
+      <!--six column right part -->
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <label> re-password</label>
+        <input  required type="password" class="form-control repassword col-lg-12 col-md-12 col-sm-12" />
+      </div>
+      <!-- six row right column ends here -->
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group col-sm-12 col-md-12 col-lg-12">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <input  required type="checkbox" name="chbox" value="ON"  />
+          <label >INTERESTED
+            IN BECOMING A PARTNER</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="form-group col-sm-12 col-md-12 col-lg-12">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <span class="help-block text-center"> By clicking
+									Register, you agree to Anamoli's
+                                        <a href="">Terms of Use</a>
+									and
+                                        <a href="">Privacy Policy</a>
+                                    </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-10 col-lg-offset-5 col-md-offset-5 col-sm-offset-5">
+      <button type="submit" class="btn btn-lg btn-success mysubmit">Submit</button>
+    </div>
+  </form>
+</div>
+</body>
