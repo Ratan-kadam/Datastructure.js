@@ -1,0 +1,135 @@
+.mycontainer {
+    border: 5px black;
+    width: 100%;
+    height: 1000px;
+    background-color: white;
+}
+
+.searchMeContainer {
+    border: 5px solid black;
+    margin-top: 2%;
+    background-color: lightgoldenrodyellow;
+
+}
+
+.previewImage {
+    width: 100px;
+    height: 65px;
+}
+
+.searchbox {
+    width: 30%;
+    border-color: darkblue;
+    border-radius: 30px;
+    text-decoration: underline;
+    text-transform: uppercase;
+    padding: 10px;
+    margin: 20px;
+}
+
+.searchButton {
+    width: 30%;
+}
+
+.outerBox {
+    position: relative;
+    color: orange;
+    border: 1px solid darkblue;
+    background-color: lightgoldenrodyellow;
+    padding: 10px;
+
+}
+
+.leftBox {
+    position: relative;
+    display: inline-block;
+    left: 0;
+    width: 20%;
+    height: 75px;
+}
+
+.leftBox img {
+    width: 100%;
+    height: 75px;
+    border-radius: 20px;
+}
+
+.rightBox {
+    padding-left: 1%;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 78%;
+    height: 75px;
+    overflow-y: hidden;
+
+}
+
+.gameHeader {
+    font-size: large;
+    color: green;
+}
+
+.arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    display: inline-block;
+    border-left: 10px solid blue;
+}
+
+.arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    display: inline-block;
+    border-right: 10px solid blue;
+}
+
+.pagenum {
+    display: inline-block;
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+.result {
+    margin-top: 40px;
+    border: 1px solid darkblue;
+}
+
+.searchButton {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    color: white;
+    overflow: hidden;
+    border: 2px solid white;
+}
+
+.rightBox div{
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.rightBox div div{
+    margin-bottom: 1px;
+
+}
+
+.rightBox div div span{
+  font-size: x-small;
+}
+
+.total{
+    float: left;
+    display: inline-block;
+}
+
+.result span.instruction{
+    margin-left: 35%;
+}

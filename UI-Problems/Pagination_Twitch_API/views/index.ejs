@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Sony </title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mycss.css">
+</head>
+<body>
+
+<div class="mycontainer">
+    <div class="searchMeContainer">
+        <input class="searchbox" value="GAME"/>
+        <button onclick="getNextData1()" class="searchButton"> GO</button>
+    </div>
+
+    <div>
+        <div class="total">Total:0</div>
+        <div class="pagenum">
+            <div onclick="getPrevData()" class="arrow-left"></div>
+            <span id="pagenum"> page 0/0</span>
+
+            <div onclick="getNextData1()" class="arrow-right"></div>
+        </div>
+    </div>
+
+
+    <div class="result">
+        <span class="instruction">TYPE SOME THING IN SEARCH BOX</span>
+    </div>
+
+</div>
+
+
+<script src="/javascripts/myjs.js"></script>
+</body>
+</html>
+
