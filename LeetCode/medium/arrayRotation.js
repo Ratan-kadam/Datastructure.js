@@ -1,3 +1,10 @@
+/* problem :
+`Search an element in a sorted and rotated array`
+algo:
+1. find the pivotal where is rotation start
+2. then write the binary function and pass the 2 array separately to find the element.
+*/
+
 var search = function(arr, target) {
     var pivot = null;
 
