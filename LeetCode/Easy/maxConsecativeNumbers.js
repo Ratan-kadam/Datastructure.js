@@ -9,7 +9,6 @@ var findMaxConsecutiveOnes = function(nums) {
     /* on char you split that is not part of the arr
     input : [1,0,1,1,0,0,0,0,0,1,1,1]
     output after str.split('0'):  [ '1', '11', '', '', '', '', '111' ]
-
     */
     var max=0;
 
