@@ -1,0 +1,34 @@
+/*Given a non-empty string s, you may delete at most one character. Judge whether you can make it a palindrome.
+
+Example 1:
+Input: "aba"
+Output: True
+Example 2:
+Input: "abca"
+Output: True
+Explanation: You could delete the character 'c'.
+*/
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var validPalindrome = function(s, deleteCount, callerName) {
+    //console.log("callerName", callerName);
+    var mid = Math.floor(s.length /2);
+    var end = s.length -1;
+    
+    
+    for (var i=0; i < mid ; i++) {
+       if(s[i] !== s[end] && deleteCount) {
+           return false;
+       } else if (s[i] !== s[end] && !deleteCount) {
+           // call recursive
+           return validPalindrome(s.substring(i, end), true, "String without last(current end) unmatch character") || validPalindrome(s.substring(i+1, end+1), true, "String without first (current i)unmatch character") || validPalindrome(s.substring(0,i) + s.substring(i+1,s.length), true, "without current i entire string");
+           break;
+       }
+        end--;
+    }
+    
+    return true;
+};
