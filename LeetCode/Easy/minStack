@@ -1,27 +1,8 @@
-/*
-Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
-
-push(x) -- Push element x onto stack.
-pop() -- Removes the element on top of the stack.
-top() -- Get the top element.
-getMin() -- Retrieve the minimum element in the stack.
-Example:
-MinStack minStack = new MinStack();
-minStack.push(-2);
-minStack.push(0);
-minStack.push(-3);
-minStack.getMin();   --> Returns -3.
-minStack.pop();
-minStack.top();      --> Returns 0.
-minStack.getMin();   --> Returns -2.
-*/
-
 /**
  * initialize your data structure here.
  */
 var MinStack = function() {
     this.myStack=[];
-    this.currentMin = null;
 };
 
 /** 
@@ -29,14 +10,13 @@ var MinStack = function() {
  * @return {void}
  */
 MinStack.prototype.push = function(x) {
-    if(this.currentMin === null ) {
-        this.currentMin = x; 
+    if(this.myStack.length) {
+        var lastMin = this.myStack[this.myStack.length - 1].min; 
+         this.myStack.push({ele: x, min: lastMin < x ? lastMin : x });
     } else {
-        this.currentMin = x < this.currentMin ? x : this.currentMin;
+         this.myStack.push({ele: x, min: x });
     }
-
-    this.myStack.push({ele: x, min: this.currentMin });
-    
+   
 };
 
 /**
