@@ -1,0 +1,116 @@
+
+/*
+Given a string s and a non-empty string p, find all the start indices of p's anagrams in s.
+
+Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100.
+
+The order of output does not matter.
+
+Example 1:
+
+Input:
+s: "cbaebabacd" p: "abc"
+
+Output:
+[0, 6]
+
+Explanation:
+The substring with start index = 0 is "cba", which is an anagram of "abc".
+The substring with start index = 6 is "bac", which is an anagram of "abc".
+*/
+
+/**
+ * @param {string} s
+ * @param {string} p
+ * @return {number[]}
+ */
+
+/* algo  use sliding window
+1. create obj having anagram string (pattern) count each char
+2. length of the window is anagram string length. 
+3. Run the loop get the elements in window and pass to compare function
+4. In loop add the new element to window and remove the left most element from current sliding window object
+*/
+
+var findAnagrams = function(s, p) {
+    
+    if(s.length < p.length) {
+        return [];
+    }
+    var result = [];
+    
+// build p matching anagram object
+    var matchObj = {}; 
+    
+    for(var i= 0; i< p.length; i++) {
+        if(matchObj[p[i]]) {
+            matchObj[p[i]] =  matchObj[p[i]] + 1; 
+        } else {
+            matchObj[p[i]] = 1; // init to 1;
+        } 
+    }
+    
+    // sliding window: 
+    var slidingObj = {};
+    
+    for(var i = 0; i < p.length; i++) {
+            if(slidingObj[s[i]]) {
+                slidingObj[s[i]] = slidingObj[s[i]] + 1;
+            } else {
+                slidingObj[s[i]] = 1;
+            }
+    }
+    
+    if (compare(slidingObj, matchObj)) {
+        result.push(0); // found 1st position match
+    }
+    
+    var startPointer = 0;
+    
+    for(var i = p.length ; i < s.length; i++) {
+        //resuming the loop untill the string ends
+        if(slidingObj[s[i]]) {
+            slidingObj[s[i]] = slidingObj[s[i]] + 1; // adding the next obj
+        } else {
+            slidingObj[s[i]] = 1; 
+        }
+        
+        // removing old left edge of sliding window
+        if(slidingObj[s[startPointer]]) {
+            slidingObj[s[startPointer]] = slidingObj[s[startPointer]] - 1;
+             if(slidingObj[s[startPointer]] === 0) {
+                delete slidingObj[s[startPointer]];
+             }
+        } else {
+            delete slidingObj.s[startPointer];
+        }
+        
+        startPointer++;
+        
+        if(compare(slidingObj, matchObj)) {
+            result.push(startPointer);
+        }
+    }
+    
+    return result;
+};
+
+function compare(slidingObj, matchObj) {
+    var slidingKeysArray = Object.keys(slidingObj);
+    var matchObjKeysArray = Object.keys(matchObj);
+ 
+    if(slidingKeysArray.length !== matchObjKeysArray.length) {
+        return false;
+    }
+    for(var i=0 ; i< slidingKeysArray.length ; i++) {
+  
+        if(matchObj[slidingKeysArray[i]]) {
+            if(matchObj[slidingKeysArray[i]] !== slidingObj[slidingKeysArray[i]]) {
+                return false;
+            }
+        } else {
+            return false; // if undefined values found.
+        }
+    }
+    return true;
+}
