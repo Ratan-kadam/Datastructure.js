@@ -1,0 +1,57 @@
+/**
+ * @param {string} s
+ * @return {number}
+ */
+
+/* 
+1. take a runner - execute loop till the end if the string .
+2. for every character check the entry in map. if available then get the index where it was occured before and start from +1 location. and reset the map count and runner is not pointed to before and start from +1.
+2.1 update the max len as per count.
+3. if not then create entry in map with index as value.
+4. make count check again for max len */
+
+
+
+var lengthOfLongestSubstring = function(s) {
+    var maxLen = 0; 
+    var map  = {}; /* store char with the index */
+    var runner = 0;
+    var count = 0;
+    
+    if(!s.length) {
+        return 0;
+    }
+    
+    if(s.length == 1) {
+        return 1;
+    }
+    
+    while(runner < s.length) {
+        var curr_char = s.charAt(runner); 
+        if(map.hasOwnProperty(curr_char)) {
+            /* found duplicate , get the previous occurance index start from the next character */
+            /* clear the map and make this first entry */
+            /* reset the count */
+            runner = map[curr_char];
+            if (count > maxLen ) {
+                maxLen = count;
+            }
+            runner = runner + 1; /* pointing to next character*/
+            map = {}; /* intilizing the map */
+            count=0;
+        } else {
+            map[curr_char] = runner; /* saving index of the occurance */
+            count++;
+            runner = runner + 1;
+        }
+    }
+    
+    /* once loop is completed again check for the count and max len, 
+    if there are no diplicates then below condition will be responcible to updating max count */
+    
+    if (count > maxLen ) {
+        maxLen = count;
+    }
+    
+    return maxLen;
+};
