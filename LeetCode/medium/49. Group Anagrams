@@ -1,0 +1,76 @@
+/*
+Given an array of strings, group anagrams together.
+
+Example:
+
+Input: ["eat", "tea", "tan", "ate", "nat", "bat"],
+Output:
+[
+  ["ate","eat","tea"],
+  ["nat","tan"],
+  ["bat"]
+]
+Note:
+
+All inputs will be in lowercase.
+The order of your output does not matter.
+*/
+
+
+/**
+ * @param {string[]} strs
+ * @return {string[][]}
+ */
+ 
+ /* Algo - 
+ 1. get 256 len array - which can store all character/symbol/number
+ 2. traverse each char - get the ascii code (which is number) then go to that index and put the same ascii value. 
+ 3. (if at the index value already availabl then add the same value again)
+ 4. array.join(''); will provide you unique string which can be use as key for reference object.
+ 5  check every work hashkey - if available then add that word to array in that key.
+ 6. At the end traverse the array.
+ */
+
+
+var groupAnagrams = function(strs) {
+    const anagrams = {};
+    const result = [];
+    
+    for(var i=0; i < strs.length; i++) {
+        checkORaddAnagram(strs[i], anagrams);
+    }
+    
+    // iertate the anagram object
+     
+    Object.keys(anagrams).map(function (key) {
+         result.push(anagrams[key]);
+     })
+    
+    return result;
+};
+
+
+function checkORaddAnagram(str, anagrams) {
+    var asciiArray = [];
+    if(!str) {
+        
+    }
+    for(var i=0; i < str.length; i++) {
+        var indexMapped = str.charCodeAt(i); // returns ascii code which will map to index.
+        if(asciiArray[indexMapped]) {
+            asciiArray[indexMapped] = asciiArray[indexMapped] + indexMapped ;
+        } else {
+            asciiArray[indexMapped] = indexMapped;
+        }
+    }
+    
+   var hashKeyStr = asciiArray.join('');
+    
+    
+    if(anagrams.hasOwnProperty(hashKeyStr)) {
+        anagrams[hashKeyStr].push(str);
+    } else {
+        anagrams[hashKeyStr] = [];
+        anagrams[hashKeyStr].push(str);
+    }
+}
