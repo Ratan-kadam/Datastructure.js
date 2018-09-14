@@ -1,0 +1,27 @@
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function(x) {
+    
+    var result = 0;
+    var multiplyer = 10;
+    var originalNumber = x;
+     
+    if(x < 0) {
+         return false; /* negative number cannot be palindrom */
+     }
+    
+    while(x > 0) {
+        var currlastDigit = x % 10;
+        result = (result * 10) + currlastDigit;
+        x = Math.trunc(x/10);
+     }
+    
+    if(result === originalNumber) {
+        return true;
+    }
+    
+    return false;
+
+};
