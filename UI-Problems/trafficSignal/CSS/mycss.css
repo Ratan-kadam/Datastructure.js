@@ -1,0 +1,30 @@
+body {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+}
+
+.container {
+ position: relative;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ align-items: center;
+ width: 90px;
+ height: 300px;
+ background-color: black;
+ border-radius: 10%;
+}
+
+.item {
+ width: 40px;
+ height: 40px;
+ background-color:cornsilk;
+ border-radius: 50%;
+ left: 25px;
+}
+
+
+
+
