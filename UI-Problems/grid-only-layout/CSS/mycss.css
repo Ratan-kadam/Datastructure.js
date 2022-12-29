@@ -50,3 +50,58 @@ background-color:midnightblue;
 grid-area: footer;
 }
 
+
+/* container 2 using css insted of id */
+
+.container2 {
+    display: grid;
+    height: 100vh;
+    background-color: antiquewhite;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 50px 500px 200px 100px;
+    justify-content: center;
+    grid-template-areas:
+    "nav nav nav nav"
+    "sidebar main main main"
+    "sidebar content1 content2 content3"
+    "footer footer footer footer"
+    ;
+    gap: 10px;
+    text-align: center;
+    }
+    
+    .nav2 {
+    justify-content: center;
+    background-color: aqua;
+    grid-area: nav;
+    }
+    
+    .sidebar2 {
+     background-color: brown;
+     grid-area: sidebar;
+    }
+    
+    .main2 {
+    background-color: green;
+    grid-area: main;
+    }
+    
+    .content12 {
+    background-color:indianred;
+    grid-area: content1;
+    }
+    
+    .content22 {
+    background-color:indianred;
+    grid-area: content2;
+    }
+    .content32 {
+    background-color:indianred;
+    grid-area: content3;
+    }
+    
+    .footer2 {
+    background-color:midnightblue;
+    grid-area: footer;
+    }
+
