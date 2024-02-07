@@ -1,0 +1,21 @@
+var canJump = function (nums) {
+    if (nums.length === 1) {
+        return true;
+    }
+    if (nums.length === 2) {
+        return nums[0] >= 1;
+    }
+
+    let maxIndex = nums.length - 1;
+
+    for (var i = nums.length - 2; i >= 0; i--) { // starting from second last
+        if (nums[i] + i >= maxIndex) {
+            maxIndex = i; // updating the max to findout the next reachable index
+        }
+    }
+
+    console.log("maxIndex:", maxIndex);
+
+    return nums[0] >= maxIndex;  // num[i] + index , index is 0 here   
+
+};
